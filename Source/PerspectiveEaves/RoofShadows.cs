@@ -6,7 +6,7 @@ namespace PerspectiveEaves;
 
 public static class RoofShadows
 {
-    private static readonly Building dummyBuilding = new Building { def = ThingDefOf.Door };
+    private static readonly Building dummyBuilding = new() { def = ThingDefOf.Door };
 
     public static Building[] GetAdjustedList(EdificeGrid edificeGrid)
     {

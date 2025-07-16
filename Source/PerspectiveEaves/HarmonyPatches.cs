@@ -1,3 +1,4 @@
+using System.Reflection;
 using HarmonyLib;
 using Verse;
 
@@ -8,6 +9,6 @@ internal static class HarmonyPatches
 {
     static HarmonyPatches()
     {
-        new Harmony("owlchemist.perspectiveeaves").PatchAll();
+        new Harmony("owlchemist.perspectiveeaves").PatchAll(Assembly.GetExecutingAssembly());
     }
 }
