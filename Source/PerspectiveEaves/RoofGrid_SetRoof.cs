@@ -5,9 +5,9 @@ using Verse;
 namespace PerspectiveEaves;
 
 [HarmonyPatch(typeof(RoofGrid), nameof(RoofGrid.SetRoof))]
-public class RoofGrid_SetRoof
+public static class RoofGrid_SetRoof
 {
-    private static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
+    public static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
     {
         return instructions.MethodReplacer(
             AccessTools.Method(typeof(MapDrawer), nameof(MapDrawer.MapMeshDirty), [typeof(IntVec3), typeof(ulong)]),

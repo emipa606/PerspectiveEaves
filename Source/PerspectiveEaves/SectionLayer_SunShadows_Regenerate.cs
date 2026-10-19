@@ -5,9 +5,9 @@ using Verse;
 namespace PerspectiveEaves;
 
 [HarmonyPatch(typeof(SectionLayer_SunShadows), nameof(SectionLayer_SunShadows.Regenerate))]
-public class SectionLayer_SunShadows_Regenerate
+public static class SectionLayer_SunShadows_Regenerate
 {
-    private static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
+    public static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
     {
         return instructions.MethodReplacer(
             AccessTools.Property(typeof(EdificeGrid), nameof(EdificeGrid.InnerArray)).GetGetMethod(),
